@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>digital clock</title>
+</head>
+    <style type="text/css">
+    	body
+    	{
+    		background:yellow;
+    	}
+    	.clock
+    	{
+    		margin-left:400px;
+    		margin-top:200px;
+    		height:300px;
+    		width:800px;
+    		position:absolute;
+    	}
+    	h1
+    	{
+    		top:30%;
+    		left:30%;
+    		font-family:verdana;
+    		font-size:90px;
+    		color:white;
+    		position:absolute;
+    	}
+    </style>
+<body onload="showtime()">
+		<img src="clock2.png" alt="image not found" class="clock"/>
+		<h1></h1>
+</body>
+<script type="text/javascript">
+    	function showtime(){
+    		var d=new Date();
+    		var h=d.getHours();
+    		var m=d.getMinutes();
+    		var s=d.getSeconds();
+    		var session="AM";
+    		if(h>=12)
+    		{
+    			session="PM";
+    		}
+    		h = h < 10 ? "0"+h :h;
+    		m = m < 10 ? "0"+m :m;
+    		s = s < 10 ? "0"+s :s;
+    		var time=h+":"+m+":"+s+":"+session;
+    		document.getElementsByTagName('h1')[0].innerText = time;
+    		setTimeout(showtime,1000);
+    	}
+ </script>
+</html>
